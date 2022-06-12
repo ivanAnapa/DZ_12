@@ -13,14 +13,6 @@ public class Product {
         this.cost = cost;
     }
 
-    public void add(Product product) {
-        int length = products.length + 1;
-        Product[] tmp = new Product[length];
-        System.arraycopy(products, 0, tmp, 0, products.length);
-        tmp[length - 1] = product;
-        products = tmp;
-    }
-
 
     public int getId() {
         return id;

@@ -46,6 +46,20 @@ public class ProductsTest {
     }
 
     @Test
+    public void shouldGetExceptionWhenDeleteByWrongId() {
+
+        ProductsManager manager = new ProductsManager();
+        manager.add(book1);
+        manager.add(book2);
+        manager.add(smartPhone1);
+        manager.add(smartPhone2);
+
+        Assertions.assertThrows(NotFoundException.class, () -> {
+            manager.deleteByID(22);
+        });
+    }
+
+    @Test
     public void shouldFindProduct() {
 
         ProductsManager manager = new ProductsManager();

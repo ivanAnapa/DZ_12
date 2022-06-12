@@ -35,6 +35,10 @@ public class ProductsManager {
     }
 
     public Product[] deleteByID(int id) {
+
+        if (findById(id) == null) {
+            throw new NotFoundException("Element with id: " + id + " not found");
+        }
         Product[] result = new Product[products.length - 1];
         int count = 0;
         for (Product product : products) {
@@ -47,4 +51,12 @@ public class ProductsManager {
         return products;
     }
 
+    public Product findById(int id) {
+        for (Product product : products) {
+            if (product.getId() == id) {
+                return product;
+            }
+        }
+        return null;
+    }
 }
